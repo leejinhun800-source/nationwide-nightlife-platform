@@ -1,0 +1,165 @@
+export const REGIONS = [
+  { id: "all", name: "전국", en: "Nationwide" },
+  { id: "pyeongtaek", name: "평택", en: "Pyeongtaek" },
+  { id: "godeok", name: "고덕", en: "Godeok" },
+  { id: "songtan", name: "송탄", en: "Songtan" },
+  { id: "ilsan", name: "일산", en: "Ilsan" },
+  { id: "suwon", name: "수원", en: "Suwon" },
+  { id: "cheonan", name: "천안", en: "Cheonan" },
+  { id: "cheongju", name: "청주", en: "Cheongju" },
+] as const;
+
+export type RegionId = (typeof REGIONS)[number]["id"];
+
+export interface Job {
+  id: string;
+  title: string;
+  venue: string;
+  region: Exclude<RegionId, "all">;
+  regionName: string;
+  type: string;
+  pay: string;
+  perks: string[];
+  hours: string;
+  kakao: string;
+  phone: string;
+  badge?: "신규" | "추천" | "VIP" | "긴급";
+  description: string;
+}
+
+export const JOBS: Job[] = [
+  {
+    id: "pt-001",
+    title: "고소득 보장 · 평택 최고급 라운지",
+    venue: "Lounge AURORA",
+    region: "pyeongtaek",
+    regionName: "평택",
+    type: "텐프로 · 룸",
+    pay: "일 50~80만원",
+    perks: ["당일지급", "마이킹", "초보환영", "출퇴근자유"],
+    hours: "PM 7:00 ~ AM 4:00",
+    kakao: "foxalba_pt",
+    phone: "010-0000-1001",
+    badge: "VIP",
+    description: "평택 시내 중심 프리미엄 라운지. 마인드 좋은 매니저, 안전한 출퇴근 보장.",
+  },
+  {
+    id: "gd-002",
+    title: "고덕 신규 오픈 · 마담 직접관리",
+    venue: "Club NOIR",
+    region: "godeok",
+    regionName: "고덕",
+    type: "퍼블릭 · 셔츠룸",
+    pay: "일 40~70만원",
+    perks: ["신규오픈", "선불가능", "숙소제공"],
+    hours: "PM 8:00 ~ AM 5:00",
+    kakao: "foxalba_gd",
+    phone: "010-0000-1002",
+    badge: "신규",
+    description: "고덕 국제신도시 오픈 매장. 깨끗한 환경과 체계적인 시스템.",
+  },
+  {
+    id: "st-003",
+    title: "송탄 미군부대 인근 · 안전한 매장",
+    venue: "Bar VELVET",
+    region: "songtan",
+    regionName: "송탄",
+    type: "가라오케 · 노래주점",
+    pay: "일 35~60만원",
+    perks: ["당일지급", "초보환영", "교통비"],
+    hours: "PM 7:30 ~ AM 3:00",
+    kakao: "foxalba_st",
+    phone: "010-0000-1003",
+    badge: "추천",
+    description: "송탄 K-55 인근 검증된 매장. 영어 가능자 우대.",
+  },
+  {
+    id: "is-004",
+    title: "일산 라페스타 · 텐프로 정직원",
+    venue: "Lounge GOLD",
+    region: "ilsan",
+    regionName: "일산",
+    type: "텐프로",
+    pay: "일 60~100만원",
+    perks: ["고소득", "VIP손님", "전용주차"],
+    hours: "PM 7:00 ~ AM 4:00",
+    kakao: "foxalba_is",
+    phone: "010-0000-1004",
+    badge: "VIP",
+    description: "일산 최상위권 매장. 고정 VIP 고객 확보, 안정적인 매출.",
+  },
+  {
+    id: "sw-005",
+    title: "수원 인계동 · 초보 가능",
+    venue: "Room SIGNATURE",
+    region: "suwon",
+    regionName: "수원",
+    type: "룸살롱",
+    pay: "일 40~70만원",
+    perks: ["초보환영", "당일지급", "마이킹가능"],
+    hours: "PM 8:00 ~ AM 4:00",
+    kakao: "foxalba_sw",
+    phone: "010-0000-1005",
+    badge: "추천",
+    description: "수원 인계동 중심 매장. 친절한 마담, 깨끗한 룸 환경.",
+  },
+  {
+    id: "ca-006",
+    title: "천안 두정동 · 긴급 모집",
+    venue: "Club ROYAL",
+    region: "cheonan",
+    regionName: "천안",
+    type: "퍼블릭 · 텐카페",
+    pay: "일 45~75만원",
+    perks: ["긴급모집", "당일출근", "선불가능"],
+    hours: "PM 7:00 ~ AM 5:00",
+    kakao: "foxalba_ca",
+    phone: "010-0000-1006",
+    badge: "긴급",
+    description: "천안 두정동 핵심 상권. 즉시 출근 가능자 우대.",
+  },
+  {
+    id: "cj-007",
+    title: "청주 성안길 · 신규 멤버 모집",
+    venue: "Lounge ÉLITE",
+    region: "cheongju",
+    regionName: "청주",
+    type: "텐프로 · 라운지",
+    pay: "일 50~85만원",
+    perks: ["고소득", "신규멤버", "숙소제공"],
+    hours: "PM 7:30 ~ AM 4:30",
+    kakao: "foxalba_cj",
+    phone: "010-0000-1007",
+    badge: "신규",
+    description: "청주 성안길 명품 라운지. 지방 거주자 숙소 지원.",
+  },
+  {
+    id: "pt-008",
+    title: "평택 비전동 · 마인드 좋은 매장",
+    venue: "Room CRYSTAL",
+    region: "pyeongtaek",
+    regionName: "평택",
+    type: "셔츠룸",
+    pay: "일 35~60만원",
+    perks: ["출퇴근자유", "당일지급", "초보환영"],
+    hours: "PM 8:00 ~ AM 3:00",
+    kakao: "foxalba_pt2",
+    phone: "010-0000-1008",
+    description: "평택 비전동 신축 매장. 자유로운 분위기, 강요 없음.",
+  },
+  {
+    id: "is-009",
+    title: "일산 정발산 · 고급 호빠",
+    venue: "Host BLACK",
+    region: "ilsan",
+    regionName: "일산",
+    type: "호스트바",
+    pay: "일 50~90만원",
+    perks: ["남성환영", "고소득", "정장지원"],
+    hours: "PM 8:00 ~ AM 5:00",
+    kakao: "foxalba_is2",
+    phone: "010-0000-1009",
+    badge: "추천",
+    description: "일산 정발산 프리미엄 호스트바. 외모 단정한 남성 모집.",
+  },
+];
